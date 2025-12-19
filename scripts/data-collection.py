@@ -93,6 +93,19 @@ def main():
         time.sleep(1)
 
         print("Data collection completed successfully!")
+        print("-" * 50)
+        print(f"All data saved to directory: {output_dir}")
+        print(" - player_stats.csv")
+        print(" - team_stats.csv")
+        print(" - advanced_player_stats.csv")
+        print(" - all_players_info.csv")
+        print(" - all_teams_info.csv")
+        print("-" * 50)
+
+        print("Total Players: {len(player_stats_df)}")
+        print("Total Teams: {len(teams_stats_df)}")
+        print("No. of players with 10 or more games played:{len(player_stats_df[player_stats_df['GP']>=10])}")
+
     except Exception as e:
         print(f"An error occurred: {e}")
 
