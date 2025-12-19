@@ -60,3 +60,41 @@ def get_all_teams_info():
     all_teams_df = pd.DataFrame(all_teams)
     print(f'Fetched info for {len(all_teams_df)} teams.')
     return all_teams_df
+
+def main():
+    output_dir = 'data/raw'
+    os.makedirs(output_dir, exist_ok=True) #check if directory exists, if not create it
+
+    print("-" * 50)
+    print("Starting NBA Data Collection Script")
+    print("-" * 50)
+
+    try:
+        player_stats_df = get_player_stats()
+        teams_stats_df = get_team_stats()
+        advanced_stats_df = get_advanced_stats()
+        all_players_df = get_all_players_info()
+        all_teams_df = get_all_teams_info()
+
+        # Save data to CSV files
+        player_stats_df.to_csv(os.path.join(output_dir, 'player_stats.csv'), index=False)
+        time.sleep(1) # Sleep (pause the program) to avoid hitting rate limits
+
+        teams_stats_df.to_csv(os.path.join(output_dir, 'team_stats.csv'), index=False)
+        time.sleep(1)
+
+        advanced_stats_df.to_csv(os.path.join(output_dir, 'advanced_player_stats.csv'), index=False)
+        time.sleep(1)
+
+        all_players_df.to_csv(os.path.join(output_dir, 'all_players_info.csv'), index=False)
+        time.sleep(1)
+
+        all_teams_df.to_csv(os.path.join(output_dir, 'all_teams_info.csv'), index=False)
+        time.sleep(1)
+
+        print("Data collection completed successfully!")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__": #prevents script from being run on import
+    main()
