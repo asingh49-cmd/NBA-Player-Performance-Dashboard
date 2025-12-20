@@ -14,7 +14,7 @@ def clean_player_stats(df):
 
     # Handle Missing Values: Fill NaNs with 0, data pretty clean otherwise
     pct_col = ['FG_PCT', 'FG3_PCT', 'FT_PCT','W_PCT']
-    df_clean = df.fillna(df_clean.median(numeric_only=True))
+    df_clean = df_clean.fillna(df_clean.median(numeric_only=True))
 
     # Making percentage columns between 0 - 100
     df_clean[pct_col] = df_clean[pct_col] * 100
@@ -59,7 +59,7 @@ def merge_advanced_stats(player_stats, advanced_stats):
     print("Merging Advanced Stats into Player Stats...")
 
     # Columns to keep from advanced stats
-    adv_cols = ['PLAYER_ID', 'OFF_RATING', 'DEF_RATING', 'NET_RATING', 'AST_PCT', 'AST_TOV', 'AST_RATIO',
+    adv_cols = ['PLAYER_ID', 'OFF_RATING', 'DEF_RATING', 'NET_RATING', 'AST_PCT', 'AST_TO', 'AST_RATIO',
                 'OREB_PCT', 'DREB_PCT', 'REB_PCT', 'TS_PCT', 'USG_PCT', 'EFG_PCT', 'PACE','PACE_PER40']
     advanced_subset = advanced_stats[adv_cols].copy()
 
@@ -90,6 +90,7 @@ def clean_all_players(df):
 
     print("All Players Info data cleaning complete.")
     return df
+
 def clean_all_teams(df):
     """ Cleaning All_Teams_Info table for Power BI usage """
     print("Cleaning All Teams Info data...")
@@ -104,9 +105,44 @@ def main():
     print('-'*50)
     print("Starting Data Cleaning Process...")
     print('-'*50)
+    print("Loading raw data from CSV files...")
+    player_stats = pd.read_csv('data/raw/player_stats.csv')
+    team_stats = pd.read_csv("data/raw/team_stats.csv")
+    advanced_stats = pd.read_csv("data/raw/advanced_player_stats.csv")
+    all_players = pd.read_csv("data/raw/all_players_info.csv")
+    all_teams = pd.read_csv("data/raw/all_teams_info.csv")
+    print("Raw data loaded successfully.")
+    print('-'*50)
+    # Cleaning Player Stats
+    cleaned_player_stats = clean_player_stats(player_stats)
+    # Cleaning Team Stats
+    cleaned_team_stats = clean_team_stats(team_stats)
+    # Merging Advanced Stats into Player Stats
+    player_stats_final = merge_advanced_stats(cleaned_player_stats, advanced_stats)
+    # Cleaning All Players Info
+    cleaned_all_players = clean_all_players(all_players)
+    # Cleaning All Teams Info
+    all_teams_cleaned = clean_all_teams(all_teams)
 
-    player_stats = pd.read_csv('../data/raw/player_stats.csv')
-    team_stats = pd.read_csv("../data/raw/team_stats.csv")
-    advanced_stats = pd.read_csv("../data/raw/advanced_player_stats.csv")
-    all_players = pd.read_csv("../data/raw/all_players_info.csv")
-    all_teams = pd.read_csv("../data/raw/all_teams_info.csv")
+    print("Saving cleaned data to CSV files...")
+    print('-'*50)
+    player_stats_final.to_csv('data/processed/player_stats_clean.csv',index=False)
+    cleaned_team_stats.to_csv('data/processed/team_stats_clean.csv',index=False)
+    cleaned_all_players.to_csv('data/processed/all_players_info_clean.csv',index=False)
+    all_teams_cleaned.to_csv('data/processed/all_teams_info_clean.csv',index=False)
+
+    print("Data cleaning process completed successfully!")
+    print('-'*50)
+    print("Cleaned data saved to 'data/processed' directory:")
+    print(" - player_stats_clean.csv")
+    print(" - team_stats_clean.csv")
+    print(" - all_players_info_clean.csv")
+    print(" - all_teams_info_clean.csv")
+    print('-'*50)
+    print("Summary of Cleaned Data:")
+    print(f"Total Cleaned Players: {len(player_stats_final)}")
+    print(f"Total Cleaned Teams: {len(cleaned_team_stats)}")
+    print(f"Total Columns in Player Stats after merge: {len(player_stats_final.columns)}")
+    
+if __name__ == "__main__":
+    main()
