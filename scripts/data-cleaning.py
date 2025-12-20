@@ -28,6 +28,11 @@ def clean_player_stats(df):
                                   -(df_clean['FTA'])-df_clean['FTM']
                                   -df_clean['TOV'])/df_clean['GP']
         print("Created Efficiency column.")
+    
+    # Round numeric columns to 2dp
+    numeric_cols = df_clean.select_dtypes(include=[np.number]).columns
+    df_clean[numeric_cols] = df_clean[numeric_cols].round(2)
+
     print("Player Stats data cleaning complete.")
     return df_clean
 
@@ -41,6 +46,10 @@ def clean_team_stats(df):
     # Adjust percentage columns between 0 - 100
     df[pct_col] = df[pct_col] * 100
     print("Filled missing percentage values with 0 and adjusted scale.")
+
+    # Round numeric columns to 2dp
+    numeric_cols = df.select_dtypes(include=[np.number]).columns
+    df[numeric_cols] = df[numeric_cols].round(2)
 
     print("Team Stats data cleaning complete.")
     return df
@@ -64,6 +73,10 @@ def merge_advanced_stats(player_stats, advanced_stats):
 
     # Adjust percentage columns between 0 - 100
     merged_df[adv_fill_cols] = merged_df[adv_fill_cols] * 100
+
+    # Round numeric columns to 2dp
+    numeric_cols = merged_df.select_dtypes(include=[np.number]).columns
+    merged_df[numeric_cols] = merged_df[numeric_cols].round(2)
 
     print("Merging complete.")
     return merged_df
