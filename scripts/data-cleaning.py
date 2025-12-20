@@ -1,11 +1,11 @@
 """
-Preparing and Cleaning Data for Power BI Usage 
+Preparing and Cleaning Data for Tableau Usage 
 """
 import pandas as pd
 import numpy as np
 
 def clean_player_stats(df):
-    """ Cleaning Player_Stats table for Power BI usage """
+    """ Cleaning Player_Stats table for Tableau usage """
     print("Cleaning Player Stats data...")
 
     # Filter: Keep Players with 5+ Games Played
