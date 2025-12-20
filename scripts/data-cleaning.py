@@ -86,7 +86,7 @@ def clean_all_players(df):
     print("Cleaning All Players Info data...")
 
     # Drop Rows with Missing Values
-    df.dropna(subset=['id'],inplace=True)
+    df.dropna(subset=['first_name'],inplace=True)
 
     print("All Players Info data cleaning complete.")
     return df
