@@ -12,7 +12,6 @@ Interactive Tableau dashboard analyzing NBA player statistics, team performance,
 ## 🛠️ Tools & Technologies
 - Tableau Public
 - Python (nba_api library)
-- Calculated Fields for calculations
 - NBA Stats API (official data source)
 - Git/GitHub for version control
 
