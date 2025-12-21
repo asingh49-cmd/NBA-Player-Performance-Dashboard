@@ -16,9 +16,9 @@ Interactive Tableau dashboard analyzing NBA player statistics, team performance,
 - Git/GitHub for version control
 
 ## 📈 Current Status
-**Phase 1:** Data collection and preparation - Done
-**Phase 2:** Data Documentation - Done
-**Phase 3:** Data Visualization and Dashboard - In Progress
+- **Phase 1:** Data collection and preparation - Done
+- **Phase 2:** Data Documentation - Done
+- **Phase 3:** Data Visualization and Dashboard - In Progress
 
 ## 🚀 Coming Soon
 Dashboard screenshots and live demo link
