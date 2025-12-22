@@ -37,8 +37,6 @@ Deep dive into efficiency metrics, usage rates, and advanced basketball analytic
 - Playmaking efficiency rankings (Assist-to-Turnover ratio)
 - Adjustable filters for minutes, games played, and performance thresholds
 
----
-
 ## 💡 Key Insights
 
 ### Elite Scorer Identification
