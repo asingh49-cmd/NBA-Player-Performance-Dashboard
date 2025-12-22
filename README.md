@@ -148,10 +148,9 @@ python scripts/data-cleaning.py
 This processes the raw data and creates cleaned versions in `data/processed/`.
 
 ### Step 5: Open in Tableau
-1. Download [Tableau Public](https://public.tableau.com/app/discover) (free)
-2. Open Tableau Public
-3. Connect to the CSV files in `data/processed/`
-4. Build visualizations following the documentation in `documentation/tableau_calculations.md`
+1. Open Tableau Public
+2. Connect to the CSV files in `data/processed/`
+3. Build visualizations following the documentation in `documentation/tableau_calculations.md`
 
 ## 📸 Dashboard Previews
 
