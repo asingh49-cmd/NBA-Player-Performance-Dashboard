@@ -28,22 +28,23 @@ Dashboard screenshots and live demo link
 This project can be expanded with several meaningful enhancements to improve analytical depth and unlock richer insights. Planned next steps include:
 
 **1. Adding Player Positional Data**
-Integrating player positions (e.g., Guard, Forward, Center) will enable:
+- Integrating player positions (e.g., Guard, Forward, Center) will enable:
 - Position-based comparisons
 - Role-specific performance metrics
 - Filtering dashboards by positional groups
 
 **2. Incorporating Biographical & Demographical Attributes**
-Enhance player profiles by adding key physical and background information, such as:
+- Enhance player/team profiles by adding key physical and background information, such as:
 - Height, weight, wingspan
 - Vertical leap and athletic measurements
 - Age, hometown, and nationality
 - College or previous playing experience
+- Additional geographical data to plot on maps
 
 These attributes help build more context-aware analytics and modeling.
 
 **3. Adding Historical / Previous Season Data**
-Including prior-season statistics will allow:
+- Including prior-season statistics will allow:
 - Year-over-year trend analysis
 - Player development tracking
 - Momentum insights for predictive modeling
