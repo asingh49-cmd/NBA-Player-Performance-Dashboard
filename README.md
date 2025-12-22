@@ -135,15 +135,14 @@ pip install -r scripts/requirements.txt
 
 ### Step 3: Collect Data
 ```bash
-cd scripts
-python collect_nba_data.py
+python scripts/data-collection.py
 ```
 
 This will create 5 CSV files in `data/raw/` with current NBA season data.
 
 ### Step 4: Clean Data
 ```bash
-python clean_data.py
+python scripts/data-cleaning.py
 ```
 
 This processes the raw data and creates cleaned versions in `data/processed/`.
@@ -153,8 +152,6 @@ This processes the raw data and creates cleaned versions in `data/processed/`.
 2. Open Tableau Public
 3. Connect to the CSV files in `data/processed/`
 4. Build visualizations following the documentation in `documentation/tableau_calculations.md`
-
----
 
 ## 📸 Dashboard Previews
 
@@ -215,8 +212,6 @@ This processes the raw data and creates cleaned versions in `data/processed/`.
 - Age, hometown, and nationality
 - College or previous playing experience
 - Additional geographical data to plot on maps
-
-These attributes help build more context-aware analytics and modeling.
 
 **3. Adding Historical / Previous Season Data**
 - Including prior-season statistics will allow:
