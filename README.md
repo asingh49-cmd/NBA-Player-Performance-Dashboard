@@ -224,6 +224,7 @@ This processes the raw data and creates cleaned versions in `data/processed/`.
 - **[Tableau Calculations](documentation/tableau_calculations.md)** - All calculated fields and formulas
 
 ## 📄 License
+
 This project is licensed under the MIT License - see the LICENSE file for details
 ---
 *Last Updated: 12/21/2025*
