@@ -114,7 +114,7 @@ nba-player-performance-dashboard/
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/nba-player-performance-dashboard.git
+git clone https://github.com/asingh49-cmd/nba-player-performance-dashboard.git
 cd nba-player-performance-dashboard
 ```
 
